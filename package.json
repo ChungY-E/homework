@@ -1,0 +1,14 @@
+{
+  "name": "quest-mode",
+  "version": "1.0.0",
+  "description": "현실의 할 일을 AI RPG 퀘스트로 바꾸는 미니 웹앱",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "check": "node --check api/generate.js && node --check public/app.js && node --check scripts/dev-server.js",
+    "test": "node --test tests/*.test.js"
+  }
+}

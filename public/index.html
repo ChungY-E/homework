@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0c0e23" />
+  <meta name="description" content="하기 싫은 일도 모험처럼. 목표를 RPG 퀘스트로 바꾸고 100 XP에 도전해 보세요." />
+  <title>QUEST MODE — 일상을 모험으로</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="page-sky" aria-hidden="true"><span class="star star-a"></span><span class="star star-b"></span><span class="star star-c"></span><span class="star star-d"></span></div>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#home" aria-label="퀘스트 모드 홈으로">
+        <span class="brand-symbol" aria-hidden="true">✦</span>
+        <span class="brand-name">QUEST<span>MODE</span></span>
+      </a>
+      <div class="header-meta"><span class="live-dot"></span> YOUR DAILY ADVENTURE <span class="v-tag">V 1.0</span></div>
+    </div>
+  </header>
+
+  <main id="home" class="shell main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-glyph">✧</span> REAL LIFE, GAME ON <span class="eyebrow-glyph">✧</span></div>
+        <h1 id="hero-title">평범한 할 일을<br /><span class="text-shine">짜릿한 모험</span>으로.</h1>
+        <p class="hero-desc">미루고 있던 과제, 귀찮은 청소, 부담스러운 공부까지.<br class="desktop-break" /> 오늘의 목표를 입력하면 AI 길드 마스터가 퀘스트로 바꿔줄게요.</p>
+        <div class="hero-points" aria-label="앱 특징">
+          <span><i aria-hidden="true">✦</i> 4개의 미션</span>
+          <span><i aria-hidden="true">✦</i> 100 XP 보상</span>
+          <span><i aria-hidden="true">✦</i> 로그인 없이 바로</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-back"></div>
+        <div class="art-glow"></div>
+        <div class="art-shield">
+          <div class="shield-mark">✦</div>
+          <div class="shield-caption">LEVEL UP<br /><strong>YOUR DAY</strong></div>
+        </div>
+        <span class="art-float float-1">✧</span><span class="art-float float-2">✦</span><span class="art-float float-3">✧</span>
+        <div class="art-badge">+ 100 XP <span>✦</span></div>
+      </div>
+    </section>
+
+    <div class="section-ruler"><span></span><i>✦</i><span></span></div>
+
+    <section class="workspace" aria-label="퀘스트 생성기">
+      <div class="forge-card">
+        <div class="card-topline"><span class="small-tag">01 / QUEST FORGE</span><span class="micro-icon" aria-hidden="true">✧</span></div>
+        <div class="section-heading"><div class="heading-icon" aria-hidden="true">⚔</div><div><h2>나만의 퀘스트 만들기</h2><p>오늘 정복하고 싶은 목표는 무엇인가요?</p></div></div>
+        <form id="quest-form" novalidate>
+          <div class="field-heading"><label for="goal">오늘의 목표 <span class="required" aria-hidden="true">*</span></label><span id="goal-counter" class="field-counter">0 / 300</span></div>
+          <textarea id="goal" name="goal" maxlength="300" minlength="5" rows="3" placeholder="예: 내일 시험인데 공부가 너무 하기 싫어..." aria-describedby="goal-help" required></textarea>
+          <p class="hint" id="goal-help">5~300자로 입력해 주세요. 완벽한 문장일 필요는 없어요.</p>
+          <div class="sample-row"><span>빠른 시작</span><button type="button" class="sample-chip" data-example="내일 시험인데 공부가 너무 하기 싫어">📚 시험 공부</button><button type="button" class="sample-chip" data-example="방이 너무 지저분해서 청소를 시작하고 싶어">🧹 방 청소</button><button type="button" class="sample-chip" data-example="운동을 꾸준히 해보고 싶은데 시작이 어려워">🏃 운동 시작</button></div>
+
+          <div class="form-divider"></div>
+          <fieldset class="choice-set"><legend><span class="choice-step">01</span> 사용 가능한 시간</legend>
+            <div class="choice-grid choice-grid-four">
+              <label class="choice"><input type="radio" name="duration" value="10" /><span>10분</span></label>
+              <label class="choice"><input type="radio" name="duration" value="20" /><span>20분</span></label>
+              <label class="choice"><input type="radio" name="duration" value="30" checked /><span>30분</span></label>
+              <label class="choice"><input type="radio" name="duration" value="60" /><span>60분</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="choice-set"><legend><span class="choice-step">02</span> 도전 난이도</legend>
+            <div class="choice-grid choice-grid-three">
+              <label class="choice"><input type="radio" name="difficulty" value="EASY" /><span><span class="difficulty-dot green"></span> EASY</span></label>
+              <label class="choice"><input type="radio" name="difficulty" value="NORMAL" checked /><span><span class="difficulty-dot blue"></span> NORMAL</span></label>
+              <label class="choice"><input type="radio" name="difficulty" value="HARD" /><span><span class="difficulty-dot pink"></span> HARD</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="choice-set"><legend><span class="choice-step">03</span> 지금 나의 에너지</legend>
+            <div class="choice-grid choice-grid-three energy-grid">
+              <label class="choice"><input type="radio" name="energy" value="LOW" /><span>🪫 <small>낮음</small></span></label>
+              <label class="choice"><input type="radio" name="energy" value="MEDIUM" checked /><span>🔋 <small>보통</small></span></label>
+              <label class="choice"><input type="radio" name="energy" value="HIGH" /><span>⚡ <small>높음</small></span></label>
+            </div>
+          </fieldset>
+          <div id="access-row" class="access-row" hidden>
+            <label for="access-code">🔒 접속 코드</label>
+            <input id="access-code" name="accessCode" type="password" autocomplete="off" placeholder="수업용 접속 코드를 입력해 주세요" maxlength="128" />
+            <p>길드 마스터가 접속 코드를 요청했어요. 코드는 이 페이지를 열어둔 동안에만 기억합니다.</p>
+          </div>
+          <div id="form-error" class="error-box" role="alert" hidden></div>
+          <button id="generate-btn" class="primary-button" type="submit" disabled><span aria-hidden="true">✦</span> 퀘스트 생성하기 <span class="button-arrow" aria-hidden="true">↗</span></button>
+          <p class="form-footnote">AI가 제안한 미션은 참고용이에요 · 생성 시 목표가 Google Gemini API로 전송돼요.</p>
+        </form>
+      </div>
+
+      <aside class="guide-column" aria-label="진행 방법">
+        <div class="guide-card">
+          <div class="card-topline"><span class="small-tag">ADVENTURER'S GUIDE</span><span class="micro-icon" aria-hidden="true">☼</span></div>
+          <div class="guide-sigil" aria-hidden="true"><span>✦</span></div>
+          <h2>모험가 길잡이</h2>
+          <p class="guide-subtitle">시작은 작게, 성취는 크게!</p>
+          <ol class="guide-list">
+            <li><span class="guide-number">01</span><div><strong>목표를 정해요</strong><p>하기 싫어도 괜찮아요. 지금 할 일을 적어 주세요.</p></div></li>
+            <li><span class="guide-number">02</span><div><strong>퀘스트를 받아요</strong><p>AI가 3개의 서브 미션과 보스전을 만들어 줘요.</p></div></li>
+            <li><span class="guide-number">03</span><div><strong>100 XP를 모아요</strong><p>완료한 미션을 체크하고 오늘의 모험을 클리어!</p></div></li>
+          </ol>
+          <div class="guide-bottom"><span>✧</span> 모든 용사는 첫 걸음부터 시작하니까요.</div>
+        </div>
+        <button class="demo-button" id="demo-btn" type="button"><span aria-hidden="true">♢</span><span><strong>샘플 퀘스트 미리 보기</strong><small>API 키 없이 화면을 체험해 보세요</small></span><span aria-hidden="true">→</span></button>
+      </aside>
+    </section>
+
+    <section id="result-area" class="result-area" aria-label="퀘스트 결과" hidden>
+      <div id="loading-view" class="loading-view" role="status" aria-live="polite" hidden>
+        <div class="loading-rune" aria-hidden="true">✦</div>
+        <h2>길드 마스터가 퀘스트를 만드는 중...</h2>
+        <p>오늘의 모험을 준비하고 있어요. 잠깐만요!</p>
+        <div class="loading-line" aria-hidden="true"><span></span></div>
+      </div>
+
+      <div id="quest-view" hidden>
+        <div class="result-kicker"><span>✦</span> YOUR NEW ADVENTURE <span>✦</span></div>
+        <div class="quest-paper">
+          <div class="quest-paper-top"><span id="quest-label" class="quest-label">NEW QUEST UNLOCKED</span><span class="quest-id">✧ QUEST SCROLL NO. 001</span></div>
+          <div class="quest-title-row"><div><h2 id="quest-title"></h2><p id="quest-story" class="quest-story"></p></div><div class="quest-crest" aria-hidden="true">⚔</div></div>
+          <div class="quest-meta"><span id="quest-difficulty" class="meta-pill"></span><span id="quest-duration" class="meta-pill"></span><span class="meta-pill">☑ 4 MISSIONS</span></div>
+          <div class="progress-panel"><div class="progress-top"><div><span class="progress-caption">QUEST PROGRESS</span><strong id="progress-label">모험이 시작됐어요!</strong></div><div class="xp-display"><strong id="xp-value">0</strong><span> / 100 XP</span></div></div><div id="xp-progress" class="progress-track" role="progressbar" aria-label="퀘스트 진행도" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="progress-fill" class="progress-fill"></div></div><p class="progress-tip" id="progress-tip">하나씩 체크하면 경험치가 쌓여요.</p></div>
+          <div class="missions-title-row"><h3>MISSION BOARD</h3><span><span id="mission-count">0</span> / 4 COMPLETE</span></div>
+          <div id="mission-list" class="mission-list"></div>
+          <div id="clear-panel" class="clear-panel" role="status" aria-live="polite" hidden>
+            <div class="confetti" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="clear-trophy" aria-hidden="true">🏆</div>
+            <p class="clear-overline">ALL MISSIONS COMPLETE</p>
+            <h3>QUEST CLEAR!</h3>
+            <p id="clear-message"></p>
+            <strong class="clear-xp">+100 XP</strong>
+          </div>
+          <div class="result-actions"><button id="copy-btn" class="secondary-button" type="button">📋 퀘스트 복사하기</button><button id="reset-btn" class="reset-button" type="button">↻ 새 퀘스트 만들기</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bottom-note" aria-label="앱 안내"><div><span aria-hidden="true">✧</span><strong>작은 퀘스트를 완료하는 오늘, 어제보다 한 걸음 더.</strong></div><p>진행 상황은 서버에 저장되지 않아요. 새로고침하면 초기화됩니다.</p></section>
+  </main>
+  <footer class="site-footer"><div class="shell footer-inner"><span>✦ QUEST MODE</span><span>MADE FOR SMALL WINS · POWERED BY GEMINI</span></div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>
